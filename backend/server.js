@@ -130,6 +130,16 @@ try {
     res.json({message:"error while fetching coaches",error})
 }
 })
+
+app.delete("/deletecoaches/:id", async (req, res) => {
+  try {
+    const deletecoaches = await coachModel.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: "Coach Deleted !", deletecoaches });
+  } catch (error) {
+    res.status(400).json({ message: "Delete Users Failed", error });
+  }
+});
+
 // routes for athletes
 
 app.post("/atheleteregister", async (req, res) => {
@@ -158,6 +168,24 @@ app.post("/atheletelogin", async (req, res) => {
   });
 
   res.json({ token });
+});
+
+app.get("/getatheletes",async(req,res)=>{
+try {
+    const getatheletes = await athleteModel.find();
+    res.json({message:"all coaches fetched",getatheletes});
+} catch (error) {
+    res.json({message:"error while fetching coaches",error})
+}
+})
+
+app.delete("/deleteatheletes/:id", async (req, res) => {
+  try {
+    const deletecoaches = await athleteModel.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: "Athelete Deleted !", deletecoaches });
+  } catch (error) {
+    res.status(400).json({ message: "Delete athelete Failed", error });
+  }
 });
 
 app.listen(5000, () => console.log(`Server running on ${process.env.PORT}`));

@@ -9,6 +9,7 @@ import CoachLogin from './CoachLogin';
 import AtheleteReg from './AtheleteReg';
 import AthleteLogin from './AtheleteLogin';
 import HomePage from './HomePage';
+import CoachDashboard from './CoachDashboard';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/admindashboard' element={<AdminDashboard />}></Route>
         <Route path='/coachregister' element={<CoachReg />}></Route>
         <Route path='/coachlogin' element={<CoachLogin />}></Route>
+        <Route path='/coachdashboard' element={<CoachDashboard />}></Route>
         <Route path='/atheleteregister' element={<AtheleteReg />}></Route>
         <Route path='/atheletelogin' element={<AthleteLogin />}></Route>
         <Route path='/' element={<HomePage />}></Route>
